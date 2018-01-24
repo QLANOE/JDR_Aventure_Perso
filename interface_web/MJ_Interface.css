@@ -1,0 +1,73 @@
+th{
+	text-align: center;
+}
+body{
+	background-color: #FFEFD5;
+}
+
+.container_PJ{
+	display: flex;
+}
+.PJ{
+	width: 60%;
+}
+.vie{
+	width: 100px;
+	text-align: center;
+}
+.perception{
+	width: 100px;
+	text-align: center;
+}
+.nom{
+	text-align: center;
+}
+
+.note{
+	min-height: 30px;
+}
+
+.degat{
+	text-align: center;
+}
+
+.gestion_tour{
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+}
+
+.titre{
+	text-align: center;
+}
+
+.container_PNJ{
+	display: flex;
+}
+
+.PNJ{
+	width: 60%;
+}
+
+
+.gestion_des{
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+}
+.valeur_des{
+	text-align: center;
+}
+
+.regex_de{
+	display: flex;
+	flex-direction: row;
+}
+
+.input_de{
+	width: 40px;
+}

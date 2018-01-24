@@ -1,0 +1,74 @@
+body{
+	line-height: 0.75em;
+	color:black;
+	background-color: #FFD700;
+
+}
+
+
+th{
+	background-color: #FFEFD5;
+}
+
+input{
+	text-align: right;
+	font: inherit;
+}
+.nomPerso{
+padding-bottom: 30px;
+}
+
+.positionPortrait{
+	max-height: 500px;
+	width: 500px;
+	float: right;
+}
+
+.description {
+	text-align: center;
+	max-width: 60%;
+	float: left;
+}
+
+.vie{
+	display:inline;
+	max-width: 33%;
+}
+
+
+.caracPrinc{
+	width: 33%;
+	text-align: center;
+	border: 1px solid black;
+    border-radius: 5px;
+}
+
+.caracSecond{
+	width: 11.11111%;
+	text-align: center;
+	border: 1px solid black;
+    border-radius: 5px;
+}
+.tableau{
+	margin:5px;
+}
+
+.portrait{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    border: 2px solid black;
+}
+
+.text{
+	height: 10px;
+}
+
+
+.infoMineure{
+width: 50%;
+float: right;
+padding-top: 30px;
+}
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interface MJ</title>
+	<link rel="stylesheet" type="text/css" href="milligram.css">
+	<link rel="stylesheet" type="text/css" href="MJ_Interface.css">
+</head>
+<body>
+	<section class="container_PJ">
+		<table class="PJ">
+			<thead>
+				<th>Nom</th>
+				<th class="vie">Vie</th>
+				<th>Perception</th>
+				<th>Note</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="nom">Meven</td>
+					<td class="vie"><input type="text" name="vie"></td>
+					<td class="perception"><input type="text" name="perception"></td>
+					<td><textarea class="note" rows="2"></textarea></td>
+				</tr>
+				<tr>
+					<td class="nom">Damien</td>
+					<td><input type="text" name="vie"></td>
+					<td class="perception"><input type="text" name="perception"></td>
+					<td><textarea class="note" rows="2"></textarea></td>
+				</tr>
+				<tr>
+					<td class="nom">PACA</td>
+					<td><input type="text" name="vie"></td>
+					<td class="perception"><input type="text" name="perception"></td>
+					<td><textarea class="note" rows="2"></textarea></td>
+				</tr>
+				<tr>
+					<td class="nom">Flo</td>
+					<td><input type="text" name="vie"></td>
+					<td class="perception"><input type="text" name="perception"></td>
+					<td><textarea class="note" rows="2"></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="gestion_tour">
+			<h2 class="titre">Tours</h2>
+			<h3 id="nbTour" class="titre">0</h3>
+			<button onclick="incrementerTour()">Nouveau tour</button>
+			<button onclick="resetTour()">Reset tour</button>
+		</div>
+	</section>
+
+	<section class="container_PNJ">
+		<table class="PNJ">
+			<thead>
+				<th>Nom</th>
+				<th class="vie">Vie</th>
+				<th>Perception</th>
+				<th>Dégats</th>
+				<th>Note</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="nom">Zombi</td>
+					<td class="vie"><input type="text" name="vie"></td>
+					<td class="perception"><input type="text" name="perception"></td>
+					<td><input class="degat" type="text" name="degat"></td>
+					<td><textarea class="note" rows="2"></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="gestion_des">
+			<h2 class="titre">Dés</h2>
+			<button type="button" onclick="jetd100()">Jet 100</button>
+			<h3 id="d100" class="valeur_des">1000</h3>
+			<div class="regex_de">
+				<input class="input_de" id="degat" type="text" name="valeur_de" value="1d6">
+				<button onclick="Ddegats()">Jet dégats</button>
+			</div>
+			<h3 id="valeur-degats" class="valeur_des">0</h3>
+		</div>
+	</section>
+	<script src="MJ_Interface.js"></script>
+</body>
+</html>
