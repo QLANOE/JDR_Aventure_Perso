@@ -5,7 +5,7 @@ import java.util.List;
 public class Personnage {
 
 	private String nom;
-	private String niveau;
+	private int niveau;
 	private List<Competence> statPrimaire;
 	private List<Competence> statSecondaire;
 	private List<Competence> competences;
@@ -15,7 +15,7 @@ public class Personnage {
 	private int psyActuelle;
 	private int psyMax;
 	private String langue;
-	private String postureBase;
+	private Posture postureBase;
 	private List<Objet> equipement;
 	private List<Don> dons;
 
@@ -23,7 +23,7 @@ public class Personnage {
 		return nom;
 	}
 
-	public String getNiveau() {
+	public int getNiveau() {
 		return niveau;
 	}
 
@@ -63,7 +63,7 @@ public class Personnage {
 		return langue;
 	}
 
-	public String getPostureBase() {
+	public Posture getPostureBase() {
 		return postureBase;
 	}
 
@@ -75,7 +75,7 @@ public class Personnage {
 		this.nom = nom;
 	}
 
-	public void setNiveau(String niveau) {
+	public void setNiveau(int niveau) {
 		this.niveau = niveau;
 	}
 
@@ -115,7 +115,7 @@ public class Personnage {
 		this.langue = langue;
 	}
 
-	public void setPostureBase(String postureBase) {
+	public void setPostureBase(Posture postureBase) {
 		this.postureBase = postureBase;
 	}
 
@@ -129,6 +129,26 @@ public class Personnage {
 
 	public void setDons(List<Don> dons) {
 		this.dons = dons;
+	}
+
+	public String competenceToString(List<Competence> competences) {
+		String str = null;
+		for (int i = 0; i < competences.size(); i++) {
+
+			str += "\n" + competences.get(i).toString();
+		}
+		return str;
+	}
+
+	@Override
+	public String toString() {
+		return "Le nom du personnage est " + this.nom + "\n son niveau est de " + this.niveau
+				+ "\n sa description est :\n" + this.description + "\n ses statistiques primaire sont:"
+				+ competenceToString(this.statPrimaire) + "\n ses statistiques secondaires sont: "
+				+ competenceToString(this.statSecondaire) + "\n ses compétences sont: "
+				+ competenceToString(this.competences) + "\n sa posture de base est la " + this.postureBase.toString()
+				+ "\n il parle le " + this.langue + "\n ses points de vie sont de " + this.vieMax + " PV et il a "
+				+ this.psyMax + " points de psy";
 	}
 
 }

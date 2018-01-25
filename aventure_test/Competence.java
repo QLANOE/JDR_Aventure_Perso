@@ -39,4 +39,9 @@ public class Competence {
 		niveau = sc.nextInt();
 	}
 
+	@Override
+	public String toString() {
+		return this.nom + " est à " + this.niveau + "%.";
+	}
+
 }
