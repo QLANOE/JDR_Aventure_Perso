@@ -30,4 +30,13 @@ public class Don {
 		this.coutPsy = coutPsy;
 	}
 
+	public Don(String nom, String description, int coutPsy) {
+		this.nom = nom;
+		this.description = description;
+		this.coutPsy = coutPsy;
+	}
+
+	public Don() {
+	}
+
 }

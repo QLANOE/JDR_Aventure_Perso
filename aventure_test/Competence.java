@@ -34,7 +34,7 @@ public class Competence {
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez saisir le nom de la compétence");
-		nom = sc.next();
+		nom = sc.nextLine();
 		System.out.println("Veuillez saisir la valeur de la compétence");
 		niveau = sc.nextInt();
 	}

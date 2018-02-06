@@ -15,4 +15,12 @@ public class De {
 		this.nbFaces = nbFaces;
 	}
 
+	public int jetDe() {
+
+		int jet = 0;
+		jet = (int) Math.floor(Math.random() * nbFaces + 1);
+
+		return jet;
+	}
+
 }

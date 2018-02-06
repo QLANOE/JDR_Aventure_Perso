@@ -6,25 +6,23 @@ import java.util.Scanner;
 
 public class CreationPerso {
 
-	public List<Competence> choisirStatsPrincipalesLvl1() {
+	public void choisirStatsPrincipalesLvl1(Personnage personnage) {
 
-		List<Competence> statPrimaire = new ArrayList<>();
 		int sommeStat = 0;
 		do {
 
-			statPrimaire = choisirStatsPrincipales();
-			sommeStat = statPrimaire.get(0).getNiveau() + statPrimaire.get(1).getNiveau()
-					+ statPrimaire.get(2).getNiveau();
+			choisirStatsPrincipales(personnage);
+			sommeStat = personnage.getStatPrimaire().get(0).getNiveau()
+					+ personnage.getStatPrimaire().get(1).getNiveau() + personnage.getStatPrimaire().get(2).getNiveau();
 			if (sommeStat != 170) {
 				System.out.println("La somme des valeurs des statistiques primaires doit être égal à 170.");
 			}
 
 		} while (sommeStat != 170);
 
-		return statPrimaire;
 	}
 
-	public List<Competence> choisirStatsPrincipales() {
+	public void choisirStatsPrincipales(Personnage personnage) {
 
 		Scanner sc = new Scanner(System.in);
 		List<Competence> statPrimaire = creerStatsPrincipales();
@@ -34,7 +32,7 @@ public class CreationPerso {
 			statPrimaire.get(i).setNiveau(sc.nextInt());
 		}
 
-		return statPrimaire;
+		personnage.setStatPrimaire(statPrimaire);
 	}
 
 	public List<Competence> creerStatsPrincipales() {
@@ -77,7 +75,7 @@ public class CreationPerso {
 		return statSecondaires;
 	}
 
-	public List<Competence> choisirStatsSecondaires() {
+	public void choisirStatsSecondaires(Personnage personnage) {
 
 		Scanner sc = new Scanner(System.in);
 		List<Competence> statSecondaire = creerStatSecondaires();
@@ -87,12 +85,59 @@ public class CreationPerso {
 			statSecondaire.get(i).setNiveau(sc.nextInt());
 		}
 
-		return statSecondaire;
+		personnage.setStatSecondaire(statSecondaire);
+		;
 	}
 
-	public List<Competence> choisirCompetencesLvl1() {
+	public int choisirStatsSecondairesPar3(Personnage personnage, int index) {
 
-		List<Competence> statSecondaire = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		int somme = 0;
+
+		for (int i = index * 3; i < (index * 3) + 3; i++) {
+			System.out.println("Veuillez saisir la valeur pour le " + personnage.getStatSecondaire().get(i).getNom());
+			personnage.getStatSecondaire().get(i).setNiveau(sc.nextInt());
+			somme += personnage.getStatSecondaire().get(i).getNiveau();
+		}
+
+		return somme;
+	}
+
+	public void choisirStatSecondaireLvl1(Personnage personnage) {
+
+		int[] sommeStat = determinerSommeStatSecondaire(personnage);
+		personnage.setStatSecondaire(creerStatSecondaires());
+
+		for (int i = 0; i < sommeStat.length; i++) {
+			int somme = 0;
+			while (somme != sommeStat[i]) {
+
+				somme = choisirStatsSecondairesPar3(personnage, i);
+				if (somme != sommeStat[i]) {
+					System.out.println("La valeur n'est pas bonne, veuillez ressaisir les valeurs");
+				}
+			}
+		}
+
+	}
+
+	public int[] determinerSommeStatSecondaire(Personnage personnage) {
+
+		int[] sommeStatSecondaire = new int[3];
+		for (int i = 0; i < personnage.getStatPrimaire().size(); i++) {
+			int calcul;
+			calcul = (int) Math.floor(personnage.getStatPrimaire().get(i).getNiveau() / 10);
+			calcul = (int) (calcul + Math.floor(calcul / 2));
+			sommeStatSecondaire[i] = calcul;
+
+		}
+
+		return sommeStatSecondaire;
+	}
+
+	public void choisirCompetencesLvl1(Personnage personnage) {
+
+		List<Competence> competences = new ArrayList<>();
 		boolean bienrempli = false;
 		while (bienrempli == false) {
 
@@ -101,44 +146,74 @@ public class CreationPerso {
 				Competence competence = new Competence();
 				competence.editerCompetence();
 				sommeStat = sommeStat + competence.getNiveau();
-				statSecondaire.add(competence);
+				competences.add(competence);
 			}
 			if (sommeStat != 60) {
 				bienrempli = false;
 				System.out.println("La somme des compétences doit être égale à 60.");
-				statSecondaire.removeAll(statSecondaire);
+				competences.removeAll(competences);
 			} else {
 				bienrempli = true;
 			}
 		}
-		return statSecondaire;
+		personnage.setCompetences(competences);
 	}
 
-	public List<Competence> choisirCompetences() {
+	public void choisirCompetences(Personnage personnage) {
 
-		List<Competence> statSecondaire = new ArrayList<>();
+		List<Competence> competences = new ArrayList<>();
 		String str;
 		Scanner sc = new Scanner(System.in);
 		do {
 			Competence competence = new Competence();
 			competence.editerCompetence();
-			statSecondaire.add(competence);
+			competences.add(competence);
 			System.out.println("Voulez-vous continuer?\n oui/non");
 			str = sc.nextLine();
 		} while (str.equals("oui"));
 
-		return statSecondaire;
+		personnage.setCompetences(competences);
 	}
 
 	public void saisirDonneesPersonnage(Personnage personnage) {
 
 		Scanner sc = new Scanner(System.in);
+		saisirNomDescriptionLangue(personnage, sc);
+		choixPosture(personnage, sc);
+		saisirVieEtPsy(personnage, sc);
+	}
+
+	public void saisirDonneesPersonnageLvl1(Personnage personnage) {
+
+		Scanner sc = new Scanner(System.in);
+		saisirNomDescriptionLangue(personnage, sc);
+		choixPosture(personnage, sc);
+		while ((personnage.getVieMax() + personnage.getPsyMax()) != 10)
+			saisirVieEtPsy(personnage, sc);
+		if ((personnage.getVieMax() + personnage.getPsyMax()) != 10) {
+			System.out.println("La somme de la vie et de la psy n'est pas égale a 10.");
+		}
+	}
+
+	public void saisirNomDescriptionLangue(Personnage personnage, Scanner sc) {
 		System.out.println("veuillez saisir le nom du personnage");
 		personnage.setNom(sc.nextLine());
 		System.out.println("veuillez saisir la description de votre personnage");
 		personnage.setDescription(sc.nextLine());
 		System.out.println("Veuillez saisir les langues de votre personnage");
 		personnage.setLangue(sc.nextLine());
+	}
+
+	public void saisirVieEtPsy(Personnage personnage, Scanner sc) {
+		System.out.println("Veuillez choisir la vie max de votre personnage");
+		personnage.setVieMax(sc.nextInt());
+		System.out.println("Veuillez choisir la psy max de votre personnage");
+		personnage.setPsyMax(sc.nextInt());
+		personnage.setVieActuelle(personnage.getVieMax());
+		personnage.setPsyActuelle(personnage.getPsyMax());
+	}
+
+	public void choixPosture(Personnage personnage, Scanner sc) {
 		System.out.println(
 				"Veuillez choisir la posture de base de votre personnage \n 1-Posture offensive\n 2-Posture Défensive\n 3-Posture de focus");
 		boolean saisieBonne = false;
@@ -161,13 +236,26 @@ public class CreationPerso {
 						"Veuillez choisir la posture de base de votre personnage \n 1-Posture offensive\n 2-Posture Défensive\n 3-Posture de focus");
 			}
 		}
+	}
 
-		System.out.println("Veuillez choisir la vie max de votre personnage");
-		personnage.setVieMax(sc.nextInt());
-		System.out.println("Veuillez choisir la psy max de votre personnage");
-		personnage.setPsyMax(sc.nextInt());
-		personnage.setVieActuelle(personnage.getVieMax());
-		personnage.setPsyActuelle(personnage.getPsyMax());
+	public void choixDons(Personnage personnage) {
+
+		Scanner sc = new Scanner(System.in);
+		String y;
+		personnage.setDons(new ArrayList<>());
+		do {
+			System.out.println("veuillez saisir le nom du don");
+			String nom = sc.nextLine();
+			System.out.println("Veuillez saisir la description du don");
+			String description = sc.nextLine();
+			System.out.println("Veuillez saisir le cout en psy");
+			int cout = sc.nextInt();
+			sc.nextLine();
+			personnage.getDons().add(new Don(nom, description, cout));
+			System.out.println("voulez vous créer un nouveau don? Y/N");
+			y = sc.nextLine();
+		} while (y.equals("y"));
+
 	}
 
 }
