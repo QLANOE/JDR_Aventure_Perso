@@ -16,21 +16,16 @@ input{
 }
 .nomPerso{
 padding-bottom: 30px;
-text-align: center;
 }
 
 .positionPortrait{
-	max-height: 600px;
+	max-height: 500px;
 	width: 500px;
 	float: right;
 }
 
-.description{
-	Line-Height: 15pt;
-	vertical-align: middle;
-}
-
-.données_texte {
+.description {
+	text-align: center;
 	max-width: 60%;
 	float: left;
 }
@@ -62,7 +57,7 @@ text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 30%;
     border: 2px solid black;
 }
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WW_interface</title>
+	<link rel="stylesheet" type="text/css" href="milligram.css">
+	<link rel="stylesheet" type="text/css" href="MJ_Interface.css">
+</head>
+<section class="container_PNJ">
+	<div class="gestion_des">
+		<div class="regex_de">
+			<div>
+				<h3 class="titre">Nombre de dés</h3>
+				<input class="input_de" id="nbDe" type="number" name="nbDe" value="5">
+			</div>
+			<div>
+				<h3 class="titre">Difficulté</h3>
+				<input class="input_de" id="difficulte" type="number" name="difficulte" value="6">
+			</div>
+		</div>
+		<button onclick="Lancer()">Lancer</button>
+		<h3 id="resultatLancer" class="valeur_des">0</h3>
+		<h3  class="titre">Réussite</h3>
+		<h3 id="reussite" class="valeur_des">0</h3>
+		<h3 id="test" class="valeur_des">0</h3>
+	</div>
+</section>
+<script src="WW_de.js"></script>
+</body>
+</html>

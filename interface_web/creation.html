@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>interface</title>
+	<link rel="stylesheet" type="text/css" href="milligram.css">
+	<link rel="stylesheet" type="text/css" href="interface.css">
+</head>
+<body>
+	<form method="Posture">
+		<section>
+				<div class="presentation">
+					<div class="description">
+						<input type="text" name="nomPerso" class="nomPerso" placeholder="Nom du personnage">
+						<textarea placeholder="description du personnage" name="description"></textarea>
+						<input class="vie" type="number" name="vie" placeholder="vie">
+						<input class="vie" type="number" name="psy" placeholder="psy">
+					</div>
+				</div>
+		</section>
+		<section>
+			<table class="tableau">
+				<tr>
+					<th class="caracPrinc">Physique</th>
+					<th class="caracPrinc">Social</th>
+					<th class="caracPrinc">Mental</th>
+				</tr>
+				<tr>
+					<td class="caracPrinc"><input type="number" name="physiques" placeholder="physiques"></td>
+					<td class="caracPrinc"><input type="number" name="social" placeholder="social"></td>
+					<td class="caracPrinc"><input type="number" name="mental" placeholder="mental"></td>
+				</tr>
+			</table>
+			<table class="tableau">
+				<tr>
+					<th class="caracSecond">force</th>
+					<th class="caracSecond">agilité</th>
+					<th class="caracSecond">endurance</th>
+					<th class="caracSecond">charisme</th>
+					<th class="caracSecond">apparence</th>
+					<th class="caracSecond">truc</th>
+					<th class="caracSecond">intelligence</th>
+					<th class="caracSecond">volonté</th>
+					<th class="caracSecond">sagesse</th>
+				</tr>
+				<tr>
+					<td class="caracSecond"><input type="number" name="force" placeholder="force"></td>
+					<td class="caracSecond"><input type="number" name="agilité" placeholder="agilité"></td>
+					<td class="caracSecond"><input type="number" name="endurance" placeholder="endurance"></td>
+					<td class="caracSecond"><input type="number" name="charisme" placeholder="charisme"></td>
+					<td class="caracSecond"><input type="number" name="apparence" placeholder="apparence"></td>
+					<td class="caracSecond"><input type="number" name="truc" placeholder="truc"></td>
+					<td class="caracSecond"><input type="number" name="intelligence" placeholder="intelligence"></td>
+					<td class="caracSecond"><input type="number" name="volonté" placeholder="volonté"></td>
+					<td class="caracSecond"><input type="number" name="sagesse" placeholder="sagesse"></td>
+				</tr>
+			</table>
+		</section>
+		<h4 class="text">Langues connues: </h4>
+		<input type="text" name="langues" placeholder="langues">
+		<h4 class="text">Posture de base: </h4>
+		<input type="text" name="posture" placeholder="posture">
+		<h2>Compétences:</h2>
+		<ul>
+			<li><input type="text" name="competence" placeholder="competence"></li>
+		</ul>
+		<h2>Dons:</h2>
+		<ul>
+			<li><input type="text" name="don" placeholder="don"></li>
+		</ul>
+		<h2>Equipement:</h2>
+		<ul>
+			<li><input type="text" name="equipement" placeholder="equipement"></li>
+		</ul>
+
+		<input type="submit" name="valider">
+
+	</form>
+
+
+	
+
+</body>
+</html>

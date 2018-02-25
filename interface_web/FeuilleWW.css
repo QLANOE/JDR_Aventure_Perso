@@ -1,0 +1,12 @@
+.titre{
+	text-align: center;
+}
+
+.conteneurTernaire{
+	display: inline-flex;
+	width: 100%;
+}
+
+.caseText{
+	width:33.33%;
+}
